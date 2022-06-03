@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import ColaBookingContract from "../../../artifacts/contracts/ColaBooking.sol/ColaBooking.json";
-
+import { getAddress } from "../../../app/api";
 export const networkList = {
   4: {
     chainId: 0x4,
@@ -59,7 +59,7 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 export const getColaBookingSC = () => {
   const ABI = ColaBookingContract.abi;
   const contractAddress = process.env.REACT_APP_COLA_DAY_SC_ADDRESS;
-  const network = process.env.REACT_APP_DEFAULT_NETWORK;
+  const network = getAddress() || process.env.REACT_APP_DEFAULT_NETWORK;
   const colaBookingContract = new ethers.Contract(contractAddress, ABI, provider.getSigner());
   console.log("contractAddress: ", contractAddress);
   console.log("network: ", network);

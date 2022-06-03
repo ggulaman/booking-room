@@ -34,17 +34,6 @@ export const networkList = {
   }
 };
 
-const checkWalletIsConnected = () => {
-  const {ethereum} = window;
-
-  if (!ethereum) {
-    console.log("Make sure you have Metamask installed!");
-    return;
-  } else {
-    console.log("Wallet exists! We're ready to go!");
-  }
-};
-
 export const connectWalletHandler = async (setUserAccount) => {
   // Check if MetaMask is installed on user's browser
   if(window.ethereum) {
@@ -62,35 +51,6 @@ export const connectWalletHandler = async (setUserAccount) => {
     }
   } else {
     alert("Please install Mask");
-  }
-};
-
-export const connectWalletHandler2 = async (setUserAccount) => {
-  const { ethereum } = window;
-
-  checkWalletIsConnected();
-
-  const chainId = async () => await ethereum.request({ method: "eth_chainId" });
-
-  console.log(`chain id is ${JSON.stringify(chainId())}`);
-
-  const connectedChain = parseInt(await chainId(), 16);
-  if (networkList[connectedChain] && networkList[connectedChain].network === "Kovan"){
-    console.log("connected to ", networkList[connectedChain].network);
-  } else {
-    alert(`Please, select Kovan network in your Wallet!. You are currently on ${networkList[connectedChain] ? networkList[connectedChain].network : "the wrong Blockchain"}`);
-    return;
-  }
-
-  try {
-    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-    console.log("accounts: ", accounts);
-    console.log("Found an account! Address: ", accounts[0]);
-    if (accounts) {
-      setUserAccount(accounts[0]);
-    }
-  } catch (err){
-    console.error(err);
   }
 };
 

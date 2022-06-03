@@ -11,6 +11,7 @@ export const getAddress = async () => {
     console.log("response axios: ", response);
   } catch (error) {
     console.log("project delete error", error);
+    return false;
   }
 
   return response.address;

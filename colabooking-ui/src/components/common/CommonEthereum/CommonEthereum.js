@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import ColaBookingContract from "../../../artifacts/contracts/ColaBooking.sol/ColaBooking.json";
 import { getAddress } from "../../../app/api";
+
 export const networkList = {
   4: {
     chainId: 0x4,
@@ -37,7 +38,8 @@ export const networkList = {
 export const connectWalletHandler = async (setUserAccount) => {
   // Check if MetaMask is installed on user's browser
   if(window.ethereum) {
-    const accounts = await window.ethereum.request({ method: "eth_accounts" });
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const accounts = await provider.send("eth_requestAccounts", []);
     const chainId = await window.ethereum.request({ method: "eth_chainId" });
 
     const chainIdDecimal = parseInt(chainId, 16);

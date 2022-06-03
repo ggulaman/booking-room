@@ -40,7 +40,7 @@ export const connectWalletHandler = async (setUserAccount) => {
   if(window.ethereum) {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const accounts = await provider.send("eth_requestAccounts", []);
-    const chainId = await window.ethereum.request({ method: "eth_chainId" });
+    const chainId = await provider.send("eth_chainId", []);
 
     const chainIdDecimal = parseInt(chainId, 16);
     // Check if user is connected to Mainnet

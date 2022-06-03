@@ -38,9 +38,9 @@ export const connectWalletHandler = async (setUserAccount) => {
   // Check if MetaMask is installed on user's browser
   if(window.ethereum) {
     const accounts = await window.ethereum.request({ method: "eth_accounts" });
-    const chainId = async () => await window.ethereum.request({ method: "eth_chainId" });
+    const chainId = await window.ethereum.request({ method: "eth_chainId" });
 
-    const chainIdDecimal = parseInt(await chainId(), 16);
+    const chainIdDecimal = parseInt(chainId, 16);
     // Check if user is connected to Mainnet
     if (networkList[chainIdDecimal] && networkList[chainIdDecimal].network === "Kovan"){
       console.log("connected to ", networkList[chainIdDecimal].network);
@@ -59,7 +59,7 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 export const getColaBookingSC = () => {
   const ABI = ColaBookingContract.abi;
   const contractAddress = process.env.REACT_APP_COLA_DAY_SC_ADDRESS;
-  const network = getAddress() || process.env.REACT_APP_DEFAULT_NETWORK;
+  const network = process.env.REACT_APP_DEFAULT_NETWORK || getAddress();
   const colaBookingContract = new ethers.Contract(contractAddress, ABI, provider.getSigner());
   console.log("contractAddress: ", contractAddress);
   console.log("network: ", network);

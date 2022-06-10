@@ -32,6 +32,11 @@ export const networkList = {
     chainId: 0x1f41,
     network: "Mumbai",
     currency: "MATIC"
+  },
+  1337: {
+    chainId: 0x539,
+    network: "Local Network",
+    currency: "ETH"
   }
 };
 
@@ -44,7 +49,7 @@ export const connectWalletHandler = async (setUserAccount) => {
 
     const chainIdDecimal = parseInt(chainId, 16);
     // Check if user is connected to Mainnet
-    if (networkList[chainIdDecimal] && networkList[chainIdDecimal].network === "Kovan"){
+    if (networkList[chainIdDecimal] && (networkList[chainIdDecimal].network === "Kovan" || networkList[chainIdDecimal].network === "Local Network")) {
       console.log("connected to ", networkList[chainIdDecimal].network);
       console.log("Found an account! Address: ", accounts[0]);
       setUserAccount(accounts[0]);

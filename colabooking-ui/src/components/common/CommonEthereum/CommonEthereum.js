@@ -1,6 +1,5 @@
 import { ethers } from "ethers";
 import ColaBookingContract from "../../../artifacts/contracts/ColaBooking.sol/ColaBooking.json";
-import { getAddress } from "../../../app/api";
 
 export const networkList = {
   4: {

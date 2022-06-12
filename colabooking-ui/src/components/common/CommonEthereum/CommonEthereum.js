@@ -49,7 +49,7 @@ export const connectWalletHandler = async (setUserAccount) => {
 
     const chainIdDecimal = parseInt(chainId, 16);
     // Check if user is connected to Mainnet
-    if (networkList[chainIdDecimal] && (networkList[chainIdDecimal].network === "Kovan" || networkList[chainIdDecimal].network === "Local Network")) {
+    if (networkList[chainIdDecimal] && (networkList[chainIdDecimal].network === "Kovan")) {
       console.log("connected to ", networkList[chainIdDecimal].network);
       console.log("Found an account! Address: ", accounts[0]);
       setUserAccount(accounts[0]);

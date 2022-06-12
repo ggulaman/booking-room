@@ -13,7 +13,7 @@ Once the employee has been approved, they can start booking.
 ### [Smart Contract](https://github.com/ggulaman/booking-room/tree/master/contracts)
 There are two Smart Contracts:
 - ColaBookingFactory.sol, which handles the creation of ColaBooking.sol Smart Contracts, passing to ColaBooking.sol the date of ColaBooking date in epoch format, and the number of rooms per company.
-- ColaBooking.sol, handles the bookings of Cola Booking date. Its constructor requieres the date of ColaBooking date in epoch format, and the number of rooms per company.\
+- ColaBooking.sol, handles the bookings of Cola Booking date. Its constructor requieres the date of ColaBooking date in epoch format, and the number of rooms per company.
 
 Smart Contracts Stack:
 - Solidity, as Smart Contract language.
@@ -28,7 +28,7 @@ Server Stack:
 - NodeJs, to handle the libraries.
 - NestJs, to create the API.
 
-### [UI](https://github.com/ggulaman/booking-room/tree/master/colabooking-ui)
+### [User Interface](https://github.com/ggulaman/booking-room/tree/master/colabooking-ui)
 Serves the UI.
 
 UI Stack:
@@ -92,6 +92,5 @@ This script will add a env. variable with the SC contract address to both the .e
 `$ npm start`
 
 - You should fetch Colabooking UI on http://localhost:3000.
-
 
 ## Future Enhencements

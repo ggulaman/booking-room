@@ -1,4 +1,46 @@
-#### DEPLOYMENT STEPS
+# Cola Booking System
+
+Cola Booking System, https://colabooking.netlify.app/, allows Employees of 2 companies which share a bulding, Cocacola and Pepsi, to book their rooms respectivily on Cola building.
+
+Cola Booking System makes use of Kovan Ethereum Testnet, where the Smart Contracts to manage the bookings have been deployed. Users have to use metamask wallet and connect it to Kovan in order to make their bookings.
+
+When a user accesses to https://colabooking.netlify.app/ for the first time, they have to sing-up as CocaCola or Pepsi Employee. After, the ColaBooking System admin has to approve the sign up.
+
+Once the employee has been approved, they can start booking.
+
+
+## Architecture
+### [Smart Contract](https://github.com/ggulaman/booking-room/tree/master/contracts)
+There are two Smart Contracts:
+- ColaBookingFactory.sol, which handles the creation of ColaBooking.sol Smart Contracts, passing to ColaBooking.sol the date of ColaBooking date in epoch format, and the number of rooms per company.
+- ColaBooking.sol, handles the bookings of Cola Booking date. Its constructor requieres the date of ColaBooking date in epoch format, and the number of rooms per company.
+
+Smart Contracts Stack:
+- Solidity, as Smart Contract language.
+- Hardhat, to deploy the SCs, run a local testnet, handle test cases once they are set up,...
+- JS, to implement scrips for SC deployments, run tests when they are ready,...
+- NodeJs, to handle the libraries.
+
+### [Backend Server](https://github.com/ggulaman/booking-room/tree/master/colabooking-server)
+Contains an API serving the Smart Contract Address of the next Cola Booking Day.
+
+Server Stack:
+- NodeJs, to handle the libraries.
+- NestJs, to create the API.
+
+### [User Interface](https://github.com/ggulaman/booking-room/tree/master/colabooking-ui)
+Serves the UI.
+
+UI Stack:
+- NodeJs, to handle the libraries.
+- reactJS, to create the UI.
+- materialUI, for the UI components.
+
+### Deployment
+Netlify is used for Automatic Deployment, which connects netlify with this github repo.
+When a PR is merged on this repo, it triggers a built on Netlify UI container.
+
+## Deployment Steps
 ##### Running on local testnet
 1. Clone the repo:\
 `$ git clone -b master https://github.com/ggulaman/booking-room.git`
@@ -50,3 +92,5 @@ This script will add a env. variable with the SC contract address to both the .e
 `$ npm start`
 
 - You should fetch Colabooking UI on http://localhost:3000.
+
+## Future Enhencements

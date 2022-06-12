@@ -8,8 +8,9 @@
 `$ cd booking-room`\
 `$ npm install`
 
-- Update the .env file with the following variables
-You can take some random address from https://privatekeys.pw/keys/ethereum/random:\
+- Update the .env file with the following variables\
+As this is a local deployment, you can take some random address from https://privatekeys.pw/keys/ethereum/random .\
+You'll need to add you keys, with funds, for kovan deployments and tests.
 `$ touch .env && echo "PRIVATE_KEY=<your private key 1>" > .env &&
 echo "PRIVATE_KEY2=<your private key 2>" >> .env &&
 echo "KOVAN_RPC_URL=<https://kovan.infura.io/v3/xxxxx>" >> .env &&

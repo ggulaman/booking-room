@@ -17,8 +17,8 @@ There are two Smart Contracts:
 
 Smart Contracts Stack:
 - Solidity, as Smart Contract language.
-- Hardhat, to deploy the SC and run a local testnet.
-- JS, to implement script.
+- Hardhat, to deploy the SCs, run a local testnet, handle test cases once they are set up,...
+- JS, to implement scrips for SC deployments, run tests when they are ready,...
 - NodeJs, to handle the libraries.
 
 ### [Backend Server](https://github.com/ggulaman/booking-room/tree/master/colabooking-server)
@@ -38,7 +38,7 @@ UI Stack:
 
 ### Deployment
 Netlify is used for Automatic Deployment, which connects netlify with this github repo.
-When a PR is merged on this repo, it triggers a build on Netlify UI container.
+When a PR is merged on this repo, it triggers a built on Netlify UI container.
 
 ## Deployment Steps
 ##### Running on local testnet

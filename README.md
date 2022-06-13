@@ -98,7 +98,7 @@ This script will add a env. variable with the SC contract address to both the .e
 ## Future Enhencements
 * On the Smart Contract side:
   * Implement tests
-  * Implement battled tested Generic SC like the OpenZeppeling one for Ownership.
+  * Implement battled tested Generic SC like the OpenZeppelin one for Ownership.
   * Add Chainklink VRF, so users can get a random room
 
 * On the back-end side:

@@ -18,25 +18,25 @@ There are two Smart Contracts:
 - ColaBooking.sol, handles the bookings of Cola Booking date. Its constructor requieres the date of ColaBooking date in epoch format, and the number of rooms per company.
 
 Smart Contracts Stack:
-- Solidity, as Smart Contract language.
-- Hardhat, to deploy the SCs, run a local testnet, handle test cases once they are set up,...
-- JS, to implement scrips for SC deployments, run tests when they are ready,...
-- NodeJs, to handle the libraries.
+- Solidity
+- Hardhat
+- javascript, to implement scrips for SC deployments, run tests when they are ready,...
+- nodeJS
 
 ### [Backend Server](https://github.com/ggulaman/booking-room/tree/master/colabooking-server)
 Contains an API serving the Smart Contract Address of the next Cola Booking Day.
 
 Server Stack:
-- NodeJs, to handle the libraries.
-- NestJs, to create the API.
+- nodeJS
+- nestJS
 
 ### [User Interface](https://github.com/ggulaman/booking-room/tree/master/colabooking-ui)
 Serves the UI.
 
 UI Stack:
-- NodeJs, to handle the libraries.
-- reactJS, to create the UI.
-- materialUI, for the UI components.
+- nodeJS
+- reactJS
+- materialUI
 
 ### Deployment
 Netlify is used for Automatic Deployment, which connects netlify with this github repo.
@@ -96,3 +96,23 @@ This script will add a env. variable with the SC contract address to both the .e
 - You should fetch Colabooking UI on http://localhost:3000.
 
 ## Future Enhencements
+* On the Smart Contract side:
+  * Implement tests
+  * Implement battled tested Generic SC like the OpenZeppeling one for Ownership.
+  * Add Chainklink VRF, so users can get a random room
+
+* On the back-end side:
+  * Implement tests
+  * Implement a db to:
+    * Store SC address data
+    * Store Generic Data like the rooms availability
+    * Add KYC
+
+  * Implement new API to serve to the UI:
+    * API to serve generic data of the status of the bookings
+    * Serve the SC addresss of the Factory SC
+
+* On the UI:
+  * Implement Tests
+  * Listen to new APIs
+  * Add a new UI to handle the Factory SC

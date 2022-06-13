@@ -10,6 +10,8 @@ Once the employee has been approved, they can start booking.
 
 
 ## Architecture
+![ColaBookingDiagramBitmap drawio](https://user-images.githubusercontent.com/90729367/173258938-23425a8e-0c04-45a3-b31f-b2ba91c3b137.png)
+
 ### [Smart Contract](https://github.com/ggulaman/booking-room/tree/master/contracts)
 There are two Smart Contracts:
 - ColaBookingFactory.sol, which handles the creation of ColaBooking.sol Smart Contracts, passing to ColaBooking.sol the date of ColaBooking date in epoch format, and the number of rooms per company.

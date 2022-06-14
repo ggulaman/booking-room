@@ -200,7 +200,7 @@ contract ColaBooking {
         require(canBook, "Bookings are disable");
         require(getIfUserBelongsTo(0, msg.sender) || getIfUserBelongsTo(1, msg.sender), "user does not belong to any company");
 
-        uint companyId = getIfUserBelongsTo(0, msg.sender) ? 1 : 0;
+        uint companyId = getIfUserBelongsTo(0, msg.sender) ? 0 : 1;
         require(!getIfRoomIsBooked(companyId, _hour, _roomId), "Room Is Not Available");
 
         bookingsCounter += 1;        
@@ -225,7 +225,7 @@ contract ColaBooking {
      */
     function cancelABooking (uint256 _hour, uint256 _roomId/*, uint256 _bookingId*/) public returns (ColaBookingCommon.bookingStructure memory){
         require(getIfUserBelongsTo(0, msg.sender) || getIfUserBelongsTo(1, msg.sender), "user does not belong to any company");
-        uint companyId = getIfUserBelongsTo(0, msg.sender) ? 1 : 0;
+        uint companyId = getIfUserBelongsTo(0, msg.sender) ? 0 : 1;
         uint256 bookingReciptId = bookingsArrayMap[getRoomIndex(companyId, _hour, _roomId)];
         require(msg.sender == bookingReceiptsList[bookingReciptId].user, "only booker user can cancel it");
         

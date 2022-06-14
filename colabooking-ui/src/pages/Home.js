@@ -66,7 +66,7 @@ const Home = () => {
   const bookingPage = (crTime, company, hour, roomId) =>
     <Grid item xs={12} xl={5} sx={{ mt: 4, mb: 4, ml: 4, mr:4 }}>
       <CommonPaper
-        title={company ? "Cocacola" : "Pespi"}
+        title={company ? "Pespi" : "Cocacola"}
       >
         {bookingPageChildren(crTime, hour, roomId)}
       </CommonPaper>
